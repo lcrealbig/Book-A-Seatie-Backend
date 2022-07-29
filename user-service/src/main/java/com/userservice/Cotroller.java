@@ -1,6 +1,7 @@
 package com.userservice;
 
 import com.userservice.model.Employee;
+import com.userservice.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +10,18 @@ import org.springframework.web.bind.annotation.*;
 public class Cotroller {
 
     @Autowired
-    CrudService CRUDService;
+    private EmployeeService employeeService;
 
     @PostMapping("/createemployee")
     @ResponseBody
     public void createEmployee(@RequestBody Employee employee) {
-        CRUDService.createEmployee(employee);
+        employeeService.createEmployee(employee);
+    }
+
+    @GetMapping("verifyLogin")
+    public void verifyLogin(@RequestBody Employee employee) {
+        System.out.println(employeeService.verifyEmployeeLogin(employee));
+
     }
 
     @GetMapping("/serviceStatus")
