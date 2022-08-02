@@ -23,7 +23,7 @@ public class Cotroller {
 
     @PostMapping("verifyLogin")
    // @Enumerated(EnumType.STRING)
-    public void verifyLogin(@RequestBody Employee employee) {
+    public void verifyLogin(@RequestBody Employee employee) throws Exception {
         System.out.println(employeeService.verifyEmployeeLogin(employee));
 
     }
