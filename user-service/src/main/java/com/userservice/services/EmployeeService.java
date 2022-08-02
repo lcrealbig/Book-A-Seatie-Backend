@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class EmployeeService {
@@ -22,10 +25,19 @@ public class EmployeeService {
         return isLoginCorrect && isPasswordCorrect;
     }
 
+
     @Transactional
     public Employee createEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
+    public String printOutQuote(){
 
+        List<String> quotes = Arrays.asList("hello World", "hello global logic", "just say hi");
+        int x =0;
+        int y =2;
+        int rand = ThreadLocalRandom.current().nextInt(x,y);
+
+        return quotes.get(rand);
+    }
 
 }

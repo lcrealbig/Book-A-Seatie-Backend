@@ -8,7 +8,7 @@ create table employee(
     employee_id integer default nextval('employee_id_seq'),
     employee_login varchar(150),
     employee_password varchar(11),
-    user_level varchar(150),
+    employee_level varchar(150),
     seat varchar(11)
  
 );
