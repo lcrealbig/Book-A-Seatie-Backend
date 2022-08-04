@@ -2,12 +2,11 @@ package com.userservice.services;
 
 import com.userservice.model.Employee;
 import com.userservice.repositories.EmployeeRepository;
-import liquibase.pro.packaged.E;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,6 +17,8 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    private EntityManager em;
+
     @Transactional
     public Employee verifyEmployeeLogin(@RequestBody Employee employee) throws Exception {
         List<Employee> employees = employeeRepository.findAll();
@@ -26,7 +27,6 @@ public class EmployeeService {
                         && emp.getEmployeePassword().equals(employee.getEmployeePassword()))
                 .findAny()
                 .orElseThrow(Exception::new));
-
         return verifiedEmployee.get();
     }
 
@@ -36,5 +36,10 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    @Transactional
+    public ResponseEntity<Employee> updateOrAssignSeat (Employee employee){
+          em.merge(employee);
+        return ResponseEntity.ok().body(employee);
+    }
 
 }

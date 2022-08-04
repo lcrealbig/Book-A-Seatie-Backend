@@ -1,0 +1,11 @@
+create SEQUENCE public.hints_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+create table hints(
+	hint_id integer default nextval('hints_seq'),
+    hints varchar(9999),
+	hint_description varchar(30)
+   )

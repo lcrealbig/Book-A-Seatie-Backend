@@ -1,0 +1,1 @@
+insert into hints (hints) values ("Reservation hints are going to display here")
