@@ -10,12 +10,12 @@ public class Room {
 
     private Integer roomId;
     private Integer seatQuantity;
-    private String seatId;
+    private Integer seatId;
 
     public Room() {
     }
 
-    public Room(Integer roomId, Integer seatQuantity, String seatId) {
+    public Room(Integer roomId, Integer seatQuantity, Integer seatId) {
         this.roomId = roomId;
         this.seatQuantity = seatQuantity;
         this.seatId = seatId;
@@ -37,11 +37,11 @@ public class Room {
         this.seatQuantity = seatQuantity;
     }
 
-    public String getSeatId() {
+    public Integer getSeatId() {
         return seatId;
     }
 
-    public void setSeatId(String seatId) {
+    public void setSeatId(Integer seatId) {
         this.seatId = seatId;
     }
 }

@@ -2,15 +2,12 @@ package com.userservice.services;
 
 import com.userservice.model.Employee;
 import com.userservice.repositories.EmployeeRepository;
-import liquibase.pro.packaged.E;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class EmployeeService {
@@ -21,15 +18,14 @@ public class EmployeeService {
     @Transactional
     public Employee verifyEmployeeLogin(@RequestBody Employee employee) throws Exception {
         List<Employee> employees = employeeRepository.findAll();
-        Optional<Employee> verifiedEmployee = Optional.ofNullable(employees.stream()
+        return employees.stream()
                 .filter(emp -> emp.getEmployeeLogin().equals(employee.getEmployeeLogin())
                         && emp.getEmployeePassword().equals(employee.getEmployeePassword()))
                 .findAny()
-                .orElseThrow(Exception::new));
+                .orElseThrow(Exception::new);
 
-        return verifiedEmployee.get();
+
     }
-
 
     @Transactional
     public Employee createEmployee(Employee employee) {
