@@ -1,0 +1,19 @@
+create SEQUENCE public.room_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 99999
+	
+create SEQUENCE public.seat_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 999999;
+
+create table room(
+   	room_id integer default nextval('room_id_seq'),
+	seat_quantity numeric,
+	seat_id integer default nextval('seat_id_seq')
+  
+ 
+);

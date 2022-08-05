@@ -4,9 +4,11 @@ import com.userservice.model.Employee;
 import com.userservice.services.EmployeeService;
 import com.userservice.services.HintsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
@@ -42,8 +44,9 @@ public class Cotroller {
         return hintsService.displayReservationHints();
     }
 
-    @PutMapping("putseat")
+ /*   @PutMapping("putseat")
     public ResponseEntity<Employee> putSeat(@RequestBody Employee employee) {
         return employeeService.updateOrAssignSeat(employee);
     }
+*/
 }

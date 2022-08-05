@@ -7,9 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class EmployeeService {
@@ -17,7 +17,6 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    private EntityManager em;
 
     @Transactional
     public Employee verifyEmployeeLogin(@RequestBody Employee employee) throws Exception {
@@ -36,10 +35,14 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+/*
     @Transactional
     public ResponseEntity<Employee> updateOrAssignSeat (Employee employee){
-          em.merge(employee);
+          Employee updatedEmployee = employeeRepository.findById(employee.getEmployeeId()).get();
+          updatedEmployee.setSeat(1);
+          employeeRepository.save(updatedEmployee);
         return ResponseEntity.ok().body(employee);
     }
+*/
 
 }
