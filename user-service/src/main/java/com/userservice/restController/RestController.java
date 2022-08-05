@@ -1,24 +1,34 @@
-package com.userservice;
+package com.userservice.restController;
 
+import com.userservice.employeeDto.EmployeeDto;
+import com.userservice.mapper.EmployeeMapper;
 import com.userservice.model.Employee;
 import com.userservice.services.EmployeeService;
 import com.userservice.services.HintsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-    @Autowired
-    private EmployeeService employeeService;
+  private final EmployeeService employeeService;
+  private final EmployeeMapper employeeMapper;
+  private final HintsService hintsService;
 
-    @Autowired
-    private HintsService hintsService;
+    public RestController(EmployeeService employeeService, EmployeeMapper employeeMapper, HintsService hintsService) {
+        this.employeeService = employeeService;
+        this.employeeMapper = employeeMapper;
+        this.hintsService = hintsService;
+    }
 
     @PostMapping("/createemployee")
-    public void createEmployee(@RequestBody Employee employee) {
-        employeeService.createEmployee(employee);
+    public ResponseEntity <EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
+        final Employee employee = employeeMapper.toEntity(employeeDto);
+        final Employee createdEmployee = employeeService.createEmployee(employee);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(employeeMapper.toDto(createdEmployee));
     }
 
     @PostMapping("verifylogin")
