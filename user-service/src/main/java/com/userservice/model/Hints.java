@@ -1,11 +1,14 @@
 package com.userservice.model;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Hints {
     @Id
+    @Column(name="hint_id")
     private Integer hintId ;
+    @Column(name="hints")
     private String hints ;
 
     public Hints() {

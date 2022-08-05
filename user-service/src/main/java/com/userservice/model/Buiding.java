@@ -1,4 +1,6 @@
 package com.userservice.model;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,11 +9,14 @@ import javax.persistence.Table;
 @Table(name = "BUILDING")
 public class Buiding {
 
+    @Column(name = "building_id")
     private Long buildingId;
+    @Column(name = "address")
     private String address;
+    @Column(name = "floors_number")
     private Integer floorsNumber;
+    @Column(name = "building_id")
     private Integer floorId;
-
 
     public Buiding() {
     }

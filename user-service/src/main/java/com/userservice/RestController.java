@@ -7,12 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
-@RestController
-public class Cotroller {
+@org.springframework.web.bind.annotation.RestController
+public class RestController {
 
     @Autowired
     private EmployeeService employeeService;
@@ -21,7 +17,6 @@ public class Cotroller {
     private HintsService hintsService;
 
     @PostMapping("/createemployee")
-    @ResponseBody
     public void createEmployee(@RequestBody Employee employee) {
         employeeService.createEmployee(employee);
     }
@@ -33,7 +28,7 @@ public class Cotroller {
     }
 
     @GetMapping("/servicestatus")
-    @ResponseBody
+
     public ResponseEntity getStatus() {
         return ResponseEntity.ok().body("user-service is [ONLINE]");
     }
@@ -43,9 +38,8 @@ public class Cotroller {
         return hintsService.displayReservationHints();
     }
 
- /*   @PutMapping("putseat")
+    @PutMapping("putseat")
     public ResponseEntity<Employee> putSeat(@RequestBody Employee employee) {
         return employeeService.updateOrAssignSeat(employee);
     }
-*/
 }

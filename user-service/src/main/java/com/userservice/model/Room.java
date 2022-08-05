@@ -1,15 +1,19 @@
 package com.userservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@Table(name = "ROOM")
+@Table(name = "room")
 public class Room {
 
-
-   private Integer roomId;
+    @Column(name="room_id")
+    private Integer roomId;
+    @Column(name="seat_quantity")
     private Integer seatQuantity;
+    @Column(name="seat_id")
     private Integer seatId;
 
     public Room() {
@@ -44,5 +48,4 @@ public class Room {
     public void setSeatId(Integer seatId) {
         this.seatId = seatId;
     }
-
 }

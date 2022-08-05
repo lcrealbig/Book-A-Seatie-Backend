@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class UserServiceApplicationTests {
 	@Autowired
-	private Cotroller controller;
+	private RestController controller;
 
 	@Mock
 	private EmployeeRepository employeeRepository;

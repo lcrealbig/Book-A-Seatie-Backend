@@ -2,13 +2,18 @@ package com.userservice.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "EMPLOYEE")
+@Table(name = "employee")
 public class Employee {
 
+    @Column(name="employee_id")
     private Integer employeeId;
+    @Column(name="employee_login")
     private String employeeLogin;
+    @Column(name="employee_password")
     private String employeePassword;
+    @Column(name="employee_level")
     private EmployeeLevel employeeLevel;
+    @Column(name="seat")
     private Integer seat;
 
 

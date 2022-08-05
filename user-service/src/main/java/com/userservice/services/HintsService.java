@@ -1,10 +1,8 @@
 package com.userservice.services;
 
 import com.userservice.repositories.HintsRepository;
-import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 
 @Service
@@ -17,5 +15,4 @@ public class HintsService {
     public String displayReservationHints() {
         return hintsRepository.getReferenceById(1).getHints();
     }
-
 }

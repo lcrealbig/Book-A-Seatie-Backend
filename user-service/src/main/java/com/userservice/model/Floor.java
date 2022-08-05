@@ -1,15 +1,18 @@
 package com.userservice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "FLOOR")
+@Table(name = "floor")
 public class Floor {
-
+    @Column(name="floor_id")
     private Integer floorId;
+    @Column(name="rooms_quantity")
     private Integer roomsQuantity;
+    @Column(name="room_id")
     private Integer roomId;
 
     public Floor() {
