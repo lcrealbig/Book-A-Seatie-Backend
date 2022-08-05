@@ -1,8 +1,9 @@
 package com.userservice.repositories;
 
-import com.userservice.model.Buiding;
+import com.userservice.model.Hints;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-public interface BuildingRepository extends JpaRepository<Buiding, Integer> {
+
+public interface HintsRepository extends JpaRepository<Hints, Integer> {
 }

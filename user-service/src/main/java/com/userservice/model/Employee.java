@@ -9,10 +9,10 @@ public class Employee {
     private String employeeLogin;
     private String employeePassword;
     private EmployeeLevel employeeLevel;
-    private String seat;
+    private Integer seat;
 
 
-    public Employee(Integer employeeId, String employeeLogin, String employeePassword, EmployeeLevel employeeLevel, String seat) {
+    public Employee(Integer employeeId, String employeeLogin, String employeePassword, EmployeeLevel employeeLevel, Integer seat) {
         this.employeeId = employeeId;
         this.employeeLogin = employeeLogin;
         this.employeePassword = employeePassword;
@@ -56,11 +56,11 @@ public class Employee {
         this.employeeLevel = employeeLevel;
     }
 
-    public String getSeat() {
+    public Integer getSeat() {
         return seat;
     }
 
-    public void setSeat(String seat) {
+    public void setSeat(Integer seat) {
         this.seat = seat;
     }
 }
