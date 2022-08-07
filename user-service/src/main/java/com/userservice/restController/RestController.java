@@ -22,7 +22,7 @@ public class RestController {
         this.hintsService = hintsService;
     }
 
-    @PostMapping("/createemployee")
+    @PostMapping("createemployee")
     public ResponseEntity <EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         final Employee employee = employeeMapper.toEntity(employeeDto);
         final Employee createdEmployee = employeeService.createEmployee(employee);
@@ -37,7 +37,7 @@ public class RestController {
         return employeeService.verifyEmployeeLogin(employee);
     }
 
-    @GetMapping("/servicestatus")
+    @GetMapping("servicestatus")
 
     public ResponseEntity getStatus() {
         return ResponseEntity.ok().body("user-service is [ONLINE]");

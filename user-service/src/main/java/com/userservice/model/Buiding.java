@@ -15,7 +15,7 @@ public class Buiding {
     private String address;
     @Column(name = "floors_number")
     private Integer floorsNumber;
-    @Column(name = "building_id")
+    @Column(name = "floor_id")
     private Integer floorId;
 
     public Buiding() {

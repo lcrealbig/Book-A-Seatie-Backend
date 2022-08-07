@@ -78,7 +78,7 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
                 <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <propertyFile>application.properties</propertyFile>
                 </configuration>
             </plugin>
         </plugins>
